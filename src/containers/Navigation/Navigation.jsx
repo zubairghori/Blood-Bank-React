@@ -68,9 +68,9 @@ class Navigation extends Component {
           <Avatar src="https://avatars0.githubusercontent.com/u/13614942?v=3&s=400"
             size={50}
             className="navigation-icon" onTouchTap={this.handleOpen} />
-          <span className="navigation-span">{this.state.Users.data.user.name}</span><br />
-            <span className="navigation-span">Blood Group:  {this.state.Users.data.user.bgType}</span><br />
-            <span className="navigation-span">{this.state.Users.data.user.userType?"Donor":"Recipent"}</span><br /><br />
+          <span className="navigation-span">{this.props.isAuthenticated?this.state.Users.data.user.name:""}</span><br />
+            <span className="navigation-span">Blood Group:  {this.props.isAuthenticated?this.state.Users.data.user.bgType:""}</span><br />
+            <span className="navigation-span">{this.props.isAuthenticated?this.state.Users.data.user.userType?"Donor":"Recipent":""}</span><br /><br />
 
         </div>
         <MUI.MenuItem
@@ -128,12 +128,12 @@ class Navigation extends Component {
             size={120}
             className="navigation-icon" />
 
-            <strong>Name: </strong> {this.state.Users.data.user.name} <br />
-          <strong>Age: </strong> {this.state.Users.data.user.age}<br />
-           <strong>Mobile Number: </strong> {this.state.Users.data.user.no} <br />
-          <strong>Blood Group: </strong> {this.state.Users.data.user.bgType} <br />
-          <strong>Email: </strong> {this.state.Users.data.user.email} <br /><br />
-          <strong>User Type: </strong> {this.state.Users.data.user.userType?"Donar":"Recipent"} <br />
+            <strong>Name: </strong> {this.props.isAuthenticated?this.state.Users.data.user.name:""} <br />
+          <strong>Age: </strong> {this.props.isAuthenticated?this.state.Users.data.user.age:""}<br />
+           <strong>Mobile Number: </strong> {this.props.isAuthenticated?this.state.Users.data.user.no:""} <br />
+          <strong>Blood Group: </strong> {this.props.isAuthenticated?this.state.Users.data.user.bgType:""} <br />
+          <strong>Email: </strong> {this.props.isAuthenticated?this.state.Users.data.user.email:""} <br /><br />
+          <strong>User Type: </strong> {this.props.isAuthenticated?this.state.Users.data.user.userType?"Donar":"Recipent":""} <br />
           </div>
         </MUI.Dialog>
       </div>
